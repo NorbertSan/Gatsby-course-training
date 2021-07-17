@@ -12,3 +12,36 @@ module.exports.onCreateNode = ({ node, actions }) => {
     });
   }
 };
+
+module.exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const markdowns = result.data.allMarkdownRemark.edges;
+  const postTemplate = path.resolve('src/templates/Post.tsx');
+
+  markdowns.forEach(markdown => {
+    const slug = markdown.node.fields.slug;
+    console.log(slug);
+    createPage({
+      path: `/blog/${slug}`,
+      component: postTemplate,
+      context: {
+        slug,
+      },
+    });
+  });
+};

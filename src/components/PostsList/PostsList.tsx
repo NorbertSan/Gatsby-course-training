@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import * as styles from './PostsList.module.scss';
 
@@ -8,6 +8,9 @@ interface IPost {
       title: string;
     };
     html: string;
+    fields: {
+      slug: string;
+    };
   };
 }
 
@@ -21,6 +24,9 @@ const PostsList: React.FC = () => {
               title
             }
             html
+            fields {
+              slug
+            }
           }
         }
       }
@@ -38,6 +44,7 @@ const PostsList: React.FC = () => {
           <article key={index} className={styles.post_item}>
             <h4>{post.node.frontmatter.title}</h4>
             <div dangerouslySetInnerHTML={{ __html: post.node.html }} />
+            <Link to={`/blog/${post.node.fields.slug}`}>Read more...</Link>
           </article>
         ))}
       </section>
