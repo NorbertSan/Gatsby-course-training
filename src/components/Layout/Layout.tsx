@@ -22,8 +22,10 @@ const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <div className={styles.main_container}>
       <Header />
-      <h2>{data.site.siteMetadata.title}</h2>
-      <main className={styles.flex_grow_1}>{children}</main>
+      <main className={styles.main_content}>
+        <h2>{data.site.siteMetadata.title}</h2>
+        {children}
+      </main>
       <Footer />
     </div>
   );

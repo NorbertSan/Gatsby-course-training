@@ -28,6 +28,13 @@ const Header: React.FC = () => {
           >
             Contact
           </Link>
+          <Link
+            className={styles.link}
+            activeClassName={styles.link_active}
+            to="/blog"
+          >
+            Blog
+          </Link>
         </ul>
       </nav>
     </header>

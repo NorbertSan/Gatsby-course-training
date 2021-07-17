@@ -1,0 +1,12 @@
+.posts_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.post_item {
+  min-width: 300px;
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 12px;
+}
