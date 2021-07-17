@@ -1,0 +1,25 @@
+.header {
+  background-color: grey;
+  padding: 12px;
+}
+
+.nav {
+  margin-left: 50px;
+  max-width: 400px;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  &_active {
+    color: #fff;
+  }
+}

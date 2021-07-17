@@ -26,7 +26,9 @@
     "preserveSymlinks": true,
     "jsx": "preserve",
     "isolatedModules": true,
-    "incremental": true
+    "incremental": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+
   },
   "include": ["src"]
 }
