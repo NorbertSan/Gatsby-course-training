@@ -5,13 +5,28 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
-    'gatsby-transformer-remark',
     `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts/`,
+        name: 'src',
+        path: `${__dirname}/src/`,
+      },
+    },
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 750,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
       },
     },
   ],
